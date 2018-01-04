@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>首页</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Free singlepage web template created by GraphBerry">
+    <meta name="keywords" content="HTML5, Bootstrap 3, CSS3, javascript, PHP, Responsive, Mobile">
+    <meta name="author" content="GraphBerry.com"/>
+    <!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="./css/bootstrap.min.css">
+	<!-- Fonts -->
+	<!--<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400" rel="stylesheet">-->
+    <!-- Styles -->
+	<link rel="stylesheet" type="text/css" href="css/yellowmoon-font.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" href="css/lunbo.css">
+	<link rel="stylesheet" href="css/login.css">
+	<script type="text/javascript" src="./js/jquery.min.js"></script>
+	<script src="./js/jquery.validate.min.js"></script>
+	<script type="text/javascript">
+        /*弹出登录框*/
+        $(document).ready(function () {
+            $('.button').click(function () {
+                $('.title-mask').fadeIn(100);
+                $('#login_form').slideDown(200);
+            });
+            $('.title .close').click(function () {
+                $('.title-mask').fadeOut(100);
+                $('#login_form').slideUp(200);
+            });
+        });
+
+        $(function() {
+            var sWidth = $("#focus").width();
+            var len = $("#focus ul li").length;
+            var index = 0;
+            var picTimer;
+
+
+            var btn = "<div class='btnBg'></div><div class='btn'>";
+            for(var i=0; i < len; i++) {
+                btn += "<span>" + (i+1) + "</span>";
+            }
+            btn += "</div>";
+            $("#focus").append(btn);
+            $("#focus .btnBg").css("opacity",0.5);
+
+
+            $("#focus .btn span").mouseenter(function() {
+                index = $("#focus .btn span").index(this);
+                showPics(index);
+            }).eq(0).trigger("mouseenter");
+
+
+            $("#focus ul").css("width",sWidth * (len + 1));
+
+
+            $("#focus ul li div").hover(function() {
+                $(this).siblings().css("opacity",0.7);
+            },function() {
+                $("#focus ul li div").css("opacity",1);
+            });
+
+
+            $("#focus").hover(function() {
+                clearInterval(picTimer);
+            },function() {
+                picTimer = setInterval(function() {
+                    if(index == len) {
+                        showFirPic();
+                        index = 0;
+                    } else {
+                        showPics(index);
+                    }
+                    index++;
+                },3000);
+            }).trigger("mouseleave");
+
+
+            function showPics(index) {
+                var nowLeft = -index*sWidth;
+                $("#focus ul").stop(true,false).animate({"left":nowLeft},500);
+                $("#focus .btn span").removeClass("on").eq(index).addClass("on");
+            }
+
+            function showFirPic() {
+                $("#focus ul").append($("#focus ul li:first").clone());
+                var nowLeft = -len*sWidth;
+                $("#focus ul").stop(true,false).animate({"left":nowLeft},500,function() {
+
+                    $("#focus ul").css("left","0");
+                    $("#focus ul li:last").remove();
+                });
+                $("#focus .btn span").removeClass("on").eq(0).addClass("on");
+            }
+        });
+
+	</script>
+
+</head>
+<body >
+
+	<header id="header">
+		
+		<!-- Section title -->
+		<h1 class="sr-only">YellowMoon | Home page</h1>
+
+	</header>
+
+	<main >
+
+		<div class="nav-container"  >
+
+			<nav id="main-navigation" class="navbar navbar-default">
+			  <!-- Section title -->
+			  <h2 class="sr-only">Main navigation</h2>
+
+			  <div class="container">
+			    <!-- Brand and toggle get grouped for better mobile display -->
+			    <div class="navbar-header">
+			      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar" aria-expanded="false">
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="sr-only">Toggle navigation</span>
+			      </button>
+			      <a class="navbar-brand smoothScroll" href="#home">
+			        <img class="logo" src="img/logo/yellowmoon_logo_02.svg" title="YellowMoon Logo" alt="Cartoon illustration of the moon and brand title">
+			        <span class="sr-only">YellowMoon Logo</span>
+			      </a>
+			    </div>
+
+			    <!-- Collect the nav links, forms, and other content for toggling -->
+			    <div id="main-navbar" class="collapse navbar-collapse">
+				  
+					<ul class="nav navbar-nav navbar-right">
+						<li class="active"><!--<a class="smoothScroll" href="#home">Home <span class="sr-only">(current)</span></a></li>-->
+						<li><a class="smoothScroll" href="#about">About us <span class="sr-only">(current)</span></a></li>
+						<li><a class="smoothScroll" href="#portfolio">Portfolio</a></li>
+						<li><a class="smoothScroll" href="#clients">Clients</a></li>
+						<li><a class="smoothScroll" href="#contact">Contact</a></li>
+					</ul>
+
+			    </div> <!-- /.navbar-collapse -->
+
+			  </div> <!-- /.container -->
+				<div class="right-bot">
+					<a href="javascript:;" id="login" class="button">登录</a>
+				</div>
+				<div id="login_form"  >
+					<div class="title">
+						Sign In
+						<a href="javascript:;" title="关闭" class="close">×</a>
+					</div>
+					<form id="loginForm" action="index.html" onsubmit="return check()" >
+						<div id="form_widget" >
+							<br>
+							<input type="text" placeholder="请输入账号" name="username" id="box_name" class="username" value="用户名" onfocus="this.value=''" onblur="if(this.value=='')this.value='用户名'"/>
+							<br>
+							<input type="password" placeholder="请输入密码" name="password" id="box_pass" class="password" value="password" onfocus="this.value=''" onblur="if(this.value=='')this.value='password'"/>
+							<br>
+							<input type="text" id="vcode" placeholder="验证码" value="验证码" /><span id="code" title="看不清，换一张"></span>
+							<div id="search_pass_link">
+								<a href="#">忘记密码？</a>
+							</div>
+							<input  type="submit" value="登录" class="btn" >
+							<div class="login-bot">
+								<a href="./html/singup.html">注册</a>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="title-mask"></div>
+			</nav> <!-- /.navbar -->
+
+		</div> <!-- /.nav-container -->
+
+
+		 <!-- /.about -->
+
+		<section id="about" class="about">
+			<!-- Section title -->
+			<h2 class="sr-only">Quote</h2>
+
+			<div class="container">
+
+				<div class="row">
+					
+					<div class="col-md-6 col-md-offset-3">
+						<div id="focus" class="focus">
+							<ul>
+								<li>
+									<div style="left:0; top:0; width:790px; height: 340px;"><a href="#">
+										<img src="img/lunbo.jpg" />
+									</a></div>
+								</li>
+								<li>
+									<div style="left:0; top:0; width:790px; height: 340px;"><a href="#">
+										<img src="img/lunbo.jpg" />
+									</a></div>
+								</li>
+								<li>
+									<div style="left:0; top:0; width:790px; height: 340px;"><a href="#">
+										<img src="img/lunbo.jpg" />
+									</a></div>
+								</li>
+								<li>
+									<div style="left:0; top:0; width:790px; height: 340px;"><a href="#">
+										<img src="img/lunbo.jpg" />
+									</a></div>
+								</li>
+								<li>
+									<div style="left:0; top:0; width:790px; height: 340px;"><a href="#">
+										<img src="img/lunbo.jpg" />
+									</a></div>
+								</li>
+							</ul>
+						</div>
+						<!--<span class="h2 -black text-center">This is some random text
+						Where you get inspired and do some cool stuff</span>
+
+						<span class="h3 -white text-center">No...We are not lazy,every website need blank space</span>-->
+
+					</div>
+                   <div class="gg-left">
+					   <h3>公告</h3>
+
+				   </div>
+				</div> <!-- /.row -->
+
+			</div> <!-- /.container -->
+			
+		</section> <!-- /.quote -->
+
+		<section id="portfolio" class="portfolio">
+
+			<div class="container">
+
+				<div class="row">
+
+					<div class="col-md-8 col-md-offset-2">
+			
+						<!-- Section title -->
+						<h2 class="title -black">Portfolio</h2>
+
+						<!--<span class="subtitle h3 -yellow">When we are bored we make some of these</span>-->
+
+					</div>
+
+				</div> <!-- /.row -->
+
+
+					
+					<div class="col-xxs-12 col-xs-6 col-md-3">
+						
+						<div class="portfolio-item">
+
+							<img src="img/portfolio/portfolio_01.jpg" title="Portfolio image one title" alt="Portfolio image one description">
+
+							<div class="overlay">
+								<div class="content">
+									<span class="h2 -black text-center">Warning</span>
+									<span class="h3 -white text-center">Shocking good art</span>
+								</div>
+							</div> <!-- /.overlay -->
+							
+						</div>
+						<div class="col-xxs-13">
+							<h3>小米4</h3>
+							<p>售价：1100</p>
+							<p>NFC技术一碰轻松配对！接触屏幕</p>
+						</div><!-- /.portfolio-item -->
+
+					</div>
+
+					<div class="col-xxs-12 col-xs-6 col-md-3">
+						
+						<div class="portfolio-item">
+
+							<img src="img/portfolio/portfolio_02.jpg" title="Portfolio image two title" alt="Portfolio image two description">
+
+							<div class="overlay">
+								<div class="content">
+									<span class="h2 -black text-center">Warning</span>
+									<span class="h3 -white text-center">Shocking good art</span>
+								</div>
+							</div> <!-- /.overlay -->
+							
+						</div> <!-- /.portfolio-item -->
+						<div class="col-xxs-13">
+							<h3>小米4</h3>
+							<p>售价：1100</p>
+							<p>NFC技术一碰轻松配对！接触屏幕</p>
+						</div>
+					</div>
+
+					<div class="col-xxs-12 col-xs-6 col-md-3">
+						
+						<div class="portfolio-item">
+
+							<img src="img/portfolio/portfolio_03.jpg" title="Portfolio image three title" alt="Portfolio image three description">
+
+							<div class="overlay">
+								<div class="content">
+									<span class="h2 -black text-center">Warning</span>
+									<span class="h3 -white text-center">Shocking good art</span>
+								</div>
+							</div> <!-- /.overlay -->
+							
+						</div> <!-- /.portfolio-item -->
+						<div class="col-xxs-13">
+							<h3>小米4</h3>
+							<p>售价：1100</p>
+							<p>NFC技术一碰轻松配对！接触屏幕</p>
+						</div>
+					</div>
+
+					<div class="col-xxs-12 col-xs-6 col-md-3">
+						
+						<div class="portfolio-item">
+
+							<img src="img/portfolio/portfolio_04.jpg" title="Portfolio image four title" alt="Portfolio image four description">
+
+							<div class="overlay">
+								<div class="content">
+									<span class="h2 -black text-center">Warning</span>
+									<span class="h3 -white text-center">Shocking good art</span>
+								</div>
+							</div> <!-- /.overlay -->
+							
+						</div> <!-- /.portfolio-item -->
+						<div class="col-xxs-13">
+							<h3>小米4</h3>
+							<p>售价：1100</p>
+							<p>NFC技术一碰轻松配对！接触屏幕</p>
+						</div>
+					</div>
+
+				 <!-- /.row -->
+			</div>
+		</section>
+                    <!--second-->
+		<section id="clients" class="clients">
+			<div class="container">
+						<div class="row">
+
+							<div class="col-md-8 col-md-offset-2">
+
+								<!-- Section title -->
+								<h2 class="title -black">Clients</h2>
+
+								<!--<span class="subtitle h3 -yellow">When we are bored we make some of these</span>-->
+
+							</div>
+
+						</div>
+					<div class="col-xxs-12 col-xs-6 col-md-3">
+						
+						<div class="portfolio-item">
+
+							<img src="img/portfolio/portfolio_05.jpg" title="Portfolio image five title" alt="Portfolio image five description">
+
+							<div class="overlay">
+								<div class="content">
+									<span class="h2 -black text-center">Warning</span>
+									<span class="h3 -white text-center">Shocking good art</span>
+								</div>
+							</div> <!-- /.overlay -->
+							
+						</div> <!-- /.portfolio-item -->
+						<div class="col-xxs-13">
+							<h3>小米4</h3>
+							<p>售价：1100</p>
+							<p>NFC技术一碰轻松配对！接触屏幕</p>
+						</div>
+					</div>
+
+					<div class="col-xxs-12 col-xs-6 col-md-3">
+						
+						<div class="portfolio-item">
+
+							<img src="img/portfolio/portfolio_06.jpg" title="Portfolio image six title" alt="Portfolio image six description">
+
+							<div class="overlay">
+								<div class="content">
+									<span class="h2 -black text-center">Warning</span>
+									<span class="h3 -white text-center">Shocking good art</span>
+								</div>
+							</div> <!-- /.overlay -->
+							
+						</div> <!-- /.portfolio-item -->
+						<div class="col-xxs-13">
+							<h3>小米4</h3>
+							<p>售价：1100</p>
+							<p>NFC技术一碰轻松配对！接触屏幕</p>
+						</div>
+					</div>
+
+					<div class="col-xxs-12 col-xs-6 col-md-3">
+						
+						<div class="portfolio-item">
+
+							<img src="img/portfolio/portfolio_07.jpg" title="Portfolio image seven title" alt="Portfolio image seven description">
+
+							<div class="overlay">
+								<div class="content">
+									<span class="h2 -black text-center">Warning</span>
+									<span class="h3 -white text-center">Shocking good art</span>
+								</div>
+							</div> <!-- /.overlay -->
+							
+						</div> <!-- /.portfolio-item -->
+						<div class="col-xxs-13">
+							<h3>小米4</h3>
+							<p>售价：1100</p>
+							<p>NFC技术一碰轻松配对！接触屏幕</p>
+						</div>
+					</div>
+
+					<div class="col-xxs-12 col-xs-6 col-md-3">
+
+						<div class="portfolio-item">
+
+							<img src="img/portfolio/portfolio_08.jpg" title="Portfolio image eight title" alt="Portfolio image eight description">
+
+							<div class="overlay">
+								<div class="content">
+									<span class="h2 -black text-center">Warning</span>
+									<span class="h3 -white text-center">Shocking good art</span>
+								</div>
+							</div> <!-- /.overlay -->
+
+						</div> <!-- /.portfolio-item -->
+						<div class="col-xxs-13">
+							<h3>小米4</h3>
+							<p>售价：1100</p>
+							<p>NFC技术一碰轻松配对！接触屏幕</p>
+						</div>
+					</div>
+			</div>
+		</section>
+                   <!--third-->
+		<section id="contact" class="contact">
+			<div class="container">
+			<div class="row">
+
+				<div class="col-md-8 col-md-offset-2">
+
+					<!-- Section title -->
+					<h2 class="title -black">Contact</h2>
+
+					<!--<span class="subtitle h3 -yellow">When we are bored we make some of these</span>-->
+
+				</div>
+
+			</div>
+					<div class="col-xxs-12 col-xs-6 col-md-3">
+
+						<div class="portfolio-item">
+
+							<img src="img/portfolio/portfolio_08.jpg" title="Portfolio image eight title" alt="Portfolio image eight description">
+
+							<div class="overlay">
+								<div class="content">
+									<span class="h2 -black text-center">Warning</span>
+									<span class="h3 -white text-center">Shocking good art</span>
+								</div>
+							</div> <!-- /.overlay -->
+
+						</div> <!-- /.portfolio-item -->
+						<div class="col-xxs-13">
+							<h3>小米4</h3>
+							<p>售价：1100</p>
+							<p>NFC技术一碰轻松配对！接触屏幕</p>
+						</div>
+					</div>
+
+					<div class="col-xxs-12 col-xs-6 col-md-3">
+
+						<div class="portfolio-item">
+
+							<img src="img/portfolio/portfolio_08.jpg" title="Portfolio image eight title" alt="Portfolio image eight description">
+
+							<div class="overlay">
+								<div class="content">
+									<span class="h2 -black text-center">Warning</span>
+									<span class="h3 -white text-center">Shocking good art</span>
+								</div>
+							</div> <!-- /.overlay -->
+
+						</div> <!-- /.portfolio-item -->
+						<div class="col-xxs-13">
+							<h3>小米4</h3>
+							<p>售价：1100</p>
+							<p>NFC技术一碰轻松配对！接触屏幕</p>
+						</div>
+					</div>
+
+					<div class="col-xxs-12 col-xs-6 col-md-3">
+
+						<div class="portfolio-item">
+
+							<img src="img/portfolio/portfolio_08.jpg" title="Portfolio image eight title" alt="Portfolio image eight description">
+
+							<div class="overlay">
+								<div class="content">
+									<span class="h2 -black text-center">Warning</span>
+									<span class="h3 -white text-center">Shocking good art</span>
+								</div>
+							</div> <!-- /.overlay -->
+
+						</div> <!-- /.portfolio-item -->
+						<div class="col-xxs-13">
+							<h3>小米4</h3>
+							<p>售价：1100</p>
+							<p>NFC技术一碰轻松配对！接触屏幕</p>
+						</div>
+					</div>
+
+					<div class="col-xxs-12 col-xs-6 col-md-3">
+
+						<div class="portfolio-item">
+
+							<img src="img/portfolio/portfolio_08.jpg" title="Portfolio image eight title" alt="Portfolio image eight description">
+
+							<div class="overlay">
+								<div class="content">
+									<span class="h2 -black text-center">Warning</span>
+									<span class="h3 -white text-center">Shocking good art</span>
+								</div>
+							</div> <!-- /.overlay -->
+
+						</div> <!-- /.portfolio-item -->
+						<div class="col-xxs-13">
+							<h3>小米4</h3>
+							<p>售价：1100</p>
+							<p>NFC技术一碰轻松配对！接触屏幕</p>
+						</div>
+					</div>
+
+				 <!-- /.row -->
+
+			 <!-- /.container -->
+
+			</div>
+		</section> <!-- /.portfolio -->
+
+	</main>
+
+	<footer id="footer" class="footer">
+		<!-- Section title -->
+		<h2 class="sr-only">Footer</h2>
+		
+		<div class="container">
+			
+			<div class="row">
+				
+				<div class="col-sm-6">
+					<small class="copyright -yellow"> © <span id="year">2016</span> -  YellowMoon All Right Reserved- More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></small>
+				</div>
+
+				<div class="col-sm-6">
+					<ul class="social-list">
+						<li><a href="javascript:void(0)"><span class="icon icon-facebook" aria-hidden="true"></span></a></li>
+						<li><a href="javascript:void(0)"><span class="icon icon-twitter" aria-hidden="true"></span></a></li>
+						<li><a href="javascript:void(0)"><span class="icon icon-dribbble" aria-hidden="true"></span></a></li>
+						<li><a href="javascript:void(0)"><span class="icon icon-google" aria-hidden="true"></span></a></li>
+						<li><a href="javascript:void(0)"><span class="icon icon-youtube" aria-hidden="true"></span></a></li>
+					</ul>
+				</div>
+
+			</div> <!-- /.row -->
+
+		</div> <!-- /.container -->
+
+	</footer>	
+
+	<!-- Scripts -->
+	<!--<script src="./js/jquery.min.js"></script>-->
+	<script type="text/javascript" src="js/libs/smooth-scroll.min.js"></script>
+	<script type="text/javascript" src="js/libs/modernizr.mq.js"></script>
+
+	<!-- Latest compiled and minified JavaScript Bootstrap-->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+	<!-- Custom JS -->
+	<script type="text/javascript" src="js/custom.js"></script>
+
+</body>
+</html>

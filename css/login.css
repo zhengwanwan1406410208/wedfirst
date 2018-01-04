@@ -1,0 +1,170 @@
+.main_bar{  width:1350px;
+    height:350px;
+    background-color:#fff;
+    margin-top:10%;
+}
+#login_form{
+    z-index:9999;
+    position:fixed;
+    top:50%;
+    left:50%;
+    width:500px;
+    height:350px;
+    margin:-180px 0 0 -330px;
+    border-radius:5px;
+    /*border:solid 1px #8e8e8e;*/
+    background-color:#fff;
+    display:none;
+    box-shadow: 0 0 10px #666;
+
+}
+.title{
+    width:100%;
+    height:40px;
+    color:#8e8e8e;
+    font-size:20px;  font-family:"微软雅黑";
+    line-height:40px;
+    text-align:left;
+    padding-left: 10px;
+}
+#form_widget{
+    width:100%;
+    height:315px;
+    background: url(../img/1.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+#form_widget .username{
+    display:block;/*设置为独立块（换行）*/
+    width:70%;
+    margin:5px auto;
+    height:35px;
+    font-size:16px;
+    border-radius:5px;/*设置圆角样式*/
+    border:0;
+    padding-left:8px;
+}
+#form_widget .password{
+    display:block;/*设置为独立块（换行）*/
+    width:70%;
+    margin:5px auto;
+    height:35px;
+    font-size:16px;
+    border-radius:5px;/*设置圆角样式*/
+    border:0;
+    padding-left:8px;
+}
+#vcode{
+    height:35px;
+    width:40%;
+    font-size:16px;
+    margin-left:15%;
+    border-radius:5px;
+    border:0;
+    padding-left:8px;
+}
+#code{  color:#8e8e8e;/*字体颜色白色*/
+    background-color:rgba(45,45,45,.15);
+    cursor:pointer;
+    border-radius:6px;
+    display: block;
+    width: 120px;
+    float: right;
+    height: 50px;
+    margin-right: 15%;
+    margin-top: -10px;
+}
+#search_pass_link{
+    width:70%;
+    text-align:right;
+    margin:0 auto;
+    padding:10px;
+}
+/*层级选择器*/
+#search_pass_link a{
+
+    color:#fff;
+    text-decoration:none;
+}
+/*伪类*/
+#search_pass_link a:hover{
+    color:#ff0000;
+    text-decoration:underline;
+}
+#form_widget .btn{
+    width:70%;
+    margin-left:15%;
+    height:40px;  border:0;
+    font-size:14pt;
+    font-family:"微软雅黑";
+    background-color:rgba(7, 4, 7, 0.71);
+    color:#fff;
+    cursor:pointer;/*设置指针鼠标的样式*/
+    border-radius:20px;/*设置圆角样式*/
+    border:0;
+}
+#copyright{  width:100%;
+    text-align:center;
+    padding-top:20px;
+    font-family:"微软雅黑";
+    color:#e0e0e0;
+}
+.title .close{
+    float: right;
+    padding-top: 13px;
+    padding-right: 20px;
+    font: bold 24px/14px simsun;
+    text-shadow: 0 1px 0 #ddd;
+    color: #8e8e8e;
+    text-decoration: none;
+}
+.title .close:hover{
+    color: #444;
+}
+/*弹出*/
+.title-mask {
+    z-index: 9998;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:#000;
+    opacity:0.4;
+    filter:alpha(opacity=40);
+    display:none
+}
+input{width:270px;
+    height:42px;
+    line-height:42px;
+    padding:0 15px;
+    background:#2d2d2d;
+    background:rgba(45,45,45,.15);
+    -moz-border-radius:6px;
+    -webkit-border-radius:6px;
+    border-radius:6px;
+    border:1px solid #3d3d3d;
+    border:1px solid rgba(255,255,255,.15);
+    -moz-box-shadow:0 2px 3px 0 rgba(0,0,0,.1) inset;
+    -webkit-box-shadow:0 2px 3px 0 rgba(0,0,0,.1) inset;
+    box-shadow:0 2px 3px 0 rgba(0,0,0,.1) inset;
+    font-family:"Microsoft YaHei",Helvetica,Arial,sans-serif;
+    font-size:14px;
+    color:#fff;
+    text-shadow:0 1px 2px rgba(0,0,0,.1);
+    -o-transition:all .2s;
+    -moz-transition:all .2s;
+    -webkit-transition:all .2s;-ms-transition:all .2s}
+::-webkit-input-placeholder { color:#fff; }
+/*singup*/
+.login-bot a {
+    float: right;
+    padding: 10px 80px;
+    font-size: 16px;
+}
+.login-bot{
+    color: #fff;
+    width: 100%;
+}
+
+

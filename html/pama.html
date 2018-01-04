@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>商品拍卖</title>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/jquery.imagezoom.min.js"></script>
+    <script src="../js/pama.js"></script>
+    <script src="../js/scroll.js"></script>
+    <link rel="stylesheet" href="../css/pama.css">
+</head>
+<body>
+<div id="pm_header" class="pm_header">
+
+</div>
+<div id="page" class="pm_page">
+    <div class="page_top">
+        <p>
+            提醒：您电脑时间和拍卖时间不一致，为避免错过合理的出价时间，请尽早出价！
+        </p>
+    </div>
+    <div class="page_content">
+        <div class="crumbs">
+            <a target="_blank" href="#">拍卖</a>
+            <span>></span>
+            <a target="_blank" href="#">*****拍卖</a>
+
+        </div>
+    </div>
+    <div class="page_main">
+        <div class="page_box clearfix">
+            <h1>
+                【第一次拍卖】闽C8990W东风日产牌机动车
+            </h1>
+            <div class="page_main_1">
+            <div class="page_pic pm-s425" >
+            <span class="page_imagezoom">
+                  <img src="../img/mid1.jpg" alt="" rel="../img/mid1.jpg" class="jqzoom">
+                <span class="page_imageicon"></span>
+        </span>
+            </div>
+                 <ul id="page_i" class="page_thumb clearfix">
+                    <li class="page_firstimg">
+                        <div class="page_pic pm-s80">
+                            <a href="#">
+                                <img src="../img/paimai1.jpg" mid="../img/mid1.jpg" big="../img/mid1.jpg">
+                            </a>
+                        </div>
+                    </li>
+                    <li class="">
+                        <div class="page_pic pm-s80">
+                                <a href="#">
+                                    <img src="../img/paimai2.jpg" mid="../img/mid2.jpg" big="../img/mid2.jpg">
+                                </a>
+                            </div>
+                    </li>
+                    <li class="">
+                        <div class="page_pic pm-s80">
+                                <a href="#">
+                                    <img src="../img/paimai3.jpg" mid="../img/mid3.jpg" big="../img/mid3.jpg">
+                                </a>
+                            </div>
+                    </li>
+                    <li class="">
+                        <div class="page_pic pm-s80">
+                            <a href="#">
+                                    <img src="../img/paimai4.jpg" mid="../img/mid4.jpg" big="../img/mid4.jpg">
+                                </a>
+                        </div>
+                    </li>
+                    <li class="">
+                        <div class="page_pic pm-s80 pm-pic-last">
+                            <a href="#">
+                                    <img src="../img/paimai5.jpg" mid="../img/mid5.jpg" big="../img/mid5.jpg">
+                                </a>
+                        </div>
+                    </li>
+                </ul>
+                <div class="page_remind">
+                    <span class="page_apply i-b">
+                        <em class="p-applyer">11</em>
+                        人报名
+                    </span>
+                    <span class="page_separate i-b"></span>
+                    <span class="page_reminder i-b">
+                        <em>659</em>人设置提醒
+                    </span>
+                    <span class="page_separate i-b"></span>
+                    <span class="page_surround i-b">
+                        <em id="p-looker">24151</em>
+                        次围观
+                    </span>
+                </div>
+                <p class="share-line"></p>
+            </div>
+            <div class="page_main_1 page_interaction">
+              <span class="page_sub i-b tbc-pm">
+                  <a class="btn-unsub" href="#">
+                      <span class="page_iconfont new-iconfont">
+                          <em class="icon-hollow"></em>
+                      </span>
+                      <span class="notify-text">订阅</span>
+                  </a>
+              </span>
+                <ul class="page_bid">
+                    <li id="page_price">
+                        <span class="title">当前价</span>
+                        <div class="price_info">
+                        <span class="current_price">
+                            <em>302,600</em>
+                            <em class="rmb-unit">元</em>
+                        </span></div>
+                    </li>
+                    <li>
+                        <span class="title over-title">结束时间</span>
+                        <span class="countdown">2018/01/06 10:15:28</span>
+                        <span id="p_delay" class="p_delay" style="display: inline;">
+                            <em class="delaycnt">6</em>次延时
+                        </span>
+                    </li>
+                </ul>
+                <div class="page_bid_eye">
+                    <span class="status_tip status_ing"></span>
+                    <div class="page_bid_e page_before_apply">
+                        <dl class="page_price clearfix">
+                            <dt class="page_h">
+                                <label>出&nbsp;&nbsp;价</label>
+                            </dt>
+                            <dd class="page_minus">
+                                <input type="text" class="page_price_input" readonly disabled="disabled"
+                                value="312,000" maxlength title="出价框，请输入拍卖价格" data-range="2000.00"
+                                data-min="316,000" data-max="999999999.99">
+                                <input type="hidden" name="price" id="p_realprice" value="">
+                                <div class="page_sign">
+                                    <a href="#" class="plus p_sign" onclick="return false;">+</a>
+                                    <a href="#" class="minus p_sign" onclick="return false;">-</a>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="page_message clearfix">
+                            <dd>
+                                <div class="line">
+                                    <a href="#" id="submitrmb" class="page_button_new page_apply_button i-b"
+                                    name="apply" aria-role="button" target="_blank" >报名交保证金</a>
+                                    <!--<a href="#" class="p_paytype i-b" target="_blank">
+                                        <i class="iconfont_sf"></i>报名必看
+                                    </a>-->
+                                </div>
+                                <div class="msg">
+                                    <p class="tips" data-tip-type="login" data-always="true">
+                                        提醒：先报名交保证金再出价。如果您已经交付保证金，请登录。
+                                    </p>
+                                </div>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+                <div class="page_mouse clearfix">
+                    <table class="pai_pay_infor">
+                        <colgroup>
+                            <col width="42%">
+                            <col width="35%">
+                            <col width="">
+                        </colgroup>
+                        <thead>
+
+                        </thead>
+                    <tbody id="p_hovershow">
+                    <tr>
+                        <td>
+                            <span class="pay_mark i-b">起拍价</span>
+                            <span class="pay_price" style="z-index: 99;">:
+                            <em class="m-i">¥</em>
+                            <span class="p_price">250,000</span>
+                            </span>
+                        </td>
+                        <td>
+                            <span class="pay_mark i-b">加价幅度</span>
+                            <span class="pay_price" style="z-index: 99;">:
+                            <em class="m-i">¥</em>
+                            <span class="p_price">2,000</span>
+                            </span>
+                        </td>
+                        <td>
+                            <span class="pay_mark i-b">类 型</span>
+                            <span class="p_type">:
+                            <span class="pay_type">拍卖</span>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="pay_mark i-b">保证金</span>
+                            <span class="pay_price" style="z-index: 99;">:
+                            <em class="m-i">¥</em>
+                            <span class="p_price">30,000</span>
+                            </span>
+                        </td>
+                        <td>
+                            <span class="pay_mark i-b">竞价周期</span>
+                            <span>:1天</span>
+                        </td>
+                        <td class="prior_td">
+                            <span class="pay_mark i-b pay_first">优先购买权人:</span>
+                        <span>无</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="pay_mark i-b">评估价：</span>
+                            <span class="pay_price" style="z-index: 99;">:
+                            <em class="m-i">¥</em>
+                            <span class="p_price">350,000</span>
+                            </span>
+                        </td>
+                        <td class="delay_td">
+                            <span class="pay_mark i-b">延时周期</span>
+                            <span>:5分钟</span>
+                        </td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    </tbody>
+                    </table>
+                </div>
+                <div class="pai_info">
+                    <p>竞价规则：
+                    <span class="pai_content">
+                        至少一人报名且出价不低于起拍价，方可成交
+                    </span>
+                    </p>
+                     <p>
+                         处置单位：
+                         浙江永正控股有限公司管理人
+                     </p>
+                    <p>联系咨询方式：<em>王律师</em> 15336591948 /
+                    </p>
+                    监督单位：
+                    <a target="_blank" href="//sf.taobao.com/0571/03">杭州市富阳区人民法院</a>
+                </div>
+            </div>
+            <div class="page_bid_right">
+                <div class="buy_helper">
+                    <h2 class="hd">
+                        <a href="#" target="_blank">
+                        <i class="iconfont_sf left"></i>竞买帮助
+                        <i class="iconfont_sf right"></i>
+                        </a>
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page_main">
+        <div class="page_addition clearfix">
+          <div class="wrap_line">
+           <span class="line selected"></span>
+             </div>
+           <!-- tab-->
+            <div id="notice-tit" class="notice-tit">
+                <ul>
+                    <li class="select"><a href="javascript:;">竞买公告</a></li>
+                    <li><a href="javascript:;">竞买须知</a></li>
+                    <li><a href="javascript:;">标的物介绍</a></li>
+                    <li><a href="javascript:;">竞买记录</a></li>
+                </ul>
+            </div>
+            <!-- 内容-->
+            <div id="notice-con" class="notice-con">
+                <div class="mod" style="display:block;">
+                    <ul>
+                        <li><a href="#">张勇：要玩快乐足球</a></li>
+                        <li><a href="#">阿里2000万驰援灾区！</a></li>
+                        <li><a href="#">旅游宝让你边玩边赚钱</a></li>
+                        <li><a href="#">多行跟进阿里信用贷款</a></li>
+                    </ul>
+                </div>
+                <div class="mod" style="display: none">
+                    <ul>
+                        <li><a href="#"><span><a href="">[通知]</a></span>“滥发”即将换新</a></li>
+                        <li><a href="#"><span><a href="">[通知]</a></span>比特币严管啦！</a></li>
+                        <li><a href="#"><span><a href="">[通知]</a></span>禁发商品名录</a></li>
+                        <li><a href="#"><span><a href="">[通知]</a></span>商品属性限制</a></li>
+                    </ul>
+                </div>
+                <div class="mod" style="display: none">
+                    <ul>
+                        <li><a href="#">个人信息要严管</a></li>
+                        <li><a href="#">个人信息要严管</a></li>
+                        <li><a href="#">个人信息要严管</a></li>
+                        <li><a href="#">个人信息要严管</a></li>
+                    </ul>
+                </div>
+                <div class="mod" style="display: none">
+                    <ul>
+                        <li><a href="#">禁发商品名录</a></li>
+                        <li><a href="#">禁发商品名录</a></li>
+                        <li><a href="#">禁发商品名录</a></li>
+                        <li><a href="#">禁发商品名录</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+            </div>
+    </div>
+
+</body>
+
+</html>
